@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --omit=dev
+RUN npm install --production
 
 # Copy rest of the source code
 COPY . .
 
-# Expose port (Railway overrides this with PORT env var)
-EXPOSE 5000
+# Remove .env if accidentally copied
+RUN rm -f .env
 
 # Start the app
 CMD ["node", "app.js"]
