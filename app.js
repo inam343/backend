@@ -1,3 +1,9 @@
+// Polyfill crypto for older Node versions
+const { webcrypto } = require("crypto");
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto;
+}
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
