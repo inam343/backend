@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 const allowedOrigins = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",").map(o => o.trim())
-  : ["http://localhost:3000"];
+  : ["https://your-frontend.up.railway.app"];
 
 app.use(cors({
   origin: function (origin, callback) {
